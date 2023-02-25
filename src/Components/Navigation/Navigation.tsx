@@ -17,17 +17,7 @@ const Navigation = (props: { children: ReactNode }) => {
    useEffect(() => {
     const getCategoriesMap = async () => {
       const data = await getCatrgoriesAndDocuments();
-      const tempData = [];
-      for (const key in data) {
-        const obj = {
-          id: key,
-          title : key ,
-          items : data[key]
-        };
-        tempData.push(obj);
-      }
-      dispatch(ProductsContextAction.setProducts(tempData));
-      console.log(data);
+      dispatch(ProductsContextAction.setProducts(data));
     };
     getCategoriesMap();
   }, [dispatch]);

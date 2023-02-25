@@ -37,8 +37,9 @@ function App({ Component, pageProps }: AppProps) {
     return unsuscribe;
   }, []);
  
+ 
   return (
-    <contextUser.Provider value={user}>
+    <contextUser.Provider value={!!user}>
       <Provider store={store}>
         <Navigation>
           <Component {...pageProps} />
