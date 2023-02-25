@@ -13,6 +13,7 @@ import "../Components/Shop/ProductCart.scss";
 import "../Components/Cart-icon/CartIcon.scss";
 import "../Components/Cart-drop-down/CartItemDropdown.scss";
 import "../Components/cart-item/CartItem.scss";
+import "../Components/Checkout/Checkout.scss";
 
 import { Provider } from "react-redux";
 import store from "@/Redux-context/Index.redux";

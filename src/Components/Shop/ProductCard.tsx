@@ -21,9 +21,7 @@ const ProductCard = (props: {
   };
   return (
     <div className="product-card-container">
-      <picture>
         <img src={props.imageUrl} alt={props.name} />
-      </picture>
       <div className="footer">
         <span className="name">{props.name}</span>
         <span className="price">${props.price}</span>

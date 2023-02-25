@@ -10,7 +10,6 @@ const CartIcon = () => {
         .map((val: any) => val.count)
         .reduce((a: number, b: number) => a + b)
     : 0;
-  console.log(count);
 
   return (
     <div

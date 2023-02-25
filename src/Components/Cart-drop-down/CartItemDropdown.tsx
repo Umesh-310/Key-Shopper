@@ -1,5 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
+
+import Link from "next/link";
+
 import CartItem from "../cart-item/CartItem";
 import Button from "../UI/Button";
 
@@ -21,7 +24,9 @@ const CartItemDropdown = () => {
           );
         })}
       </div>
-      <Button>GO TO CHECKOUT</Button>
+      <Link href="/checkout">
+        <Button>GO TO CHECKOUT</Button>
+      </Link>
     </div>
   );
 };

@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 
 const Navigation = (props: { children: ReactNode }) => {
   const { cartOpen } = useSelector((state: any) => state.cartContext);
-  console.log(cartOpen);
 
   const user = useContext(contextUser);
 
@@ -51,10 +50,10 @@ const Navigation = (props: { children: ReactNode }) => {
           {/* <Link className="nav-link" href="/sign-in"> */}
           {signType}
           {/* </Link> */}
-          <Link className="nav-link" href="/shop">
+          <Link className="nav-link" href="">
             <CartIcon />
           </Link>
-          {cartOpen &&<CartItemDropdown />}
+          {cartOpen && <CartItemDropdown />}
         </div>
       </div>
       <main>{props.children}</main>

@@ -9,14 +9,12 @@ const CartItem = (props: {
 }) => {
   return (
     <div className="cart-item-container">
-      <picture>
-        <img src={props.imageUrl} alt={props.name} />
-      </picture>
+      <img src={props.imageUrl} alt={props.name} />
       <div className="item-details">
         <span className="name">{props.name}</span>
         <span className="price">
           {props.count} x ${props.price}
-        </span>{" "}
+        </span>
       </div>
     </div>
   );
