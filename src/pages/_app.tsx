@@ -21,16 +21,14 @@ import {
   createUserDocumentAuth,
   onAuthStateChangedListener,
 } from "@/Components/utils/firebase/firebase.utils";
-import { userContextAction } from "@/Redux-context/productsContext";
+
 
 export const contextUser = React.createContext({});
 
 function App({ Component, pageProps }: AppProps) {
-  // const dispacth = useDispatch();
   const [user, setUser] = useState({});
   useEffect(() => {
     const unsuscribe = onAuthStateChangedListener((user: any) => {
-      // dispacth(userContextAction.setUser(user));
       if (user) {
         createUserDocumentAuth(user);
       }
@@ -38,6 +36,7 @@ function App({ Component, pageProps }: AppProps) {
     });
     return unsuscribe;
   }, []);
+ 
   return (
     <contextUser.Provider value={user}>
       <Provider store={store}>

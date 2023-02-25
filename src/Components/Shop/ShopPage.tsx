@@ -6,19 +6,30 @@ const ShopPage = () => {
   const { products } = useSelector((state: any) => state.productsContext);
 
   return (
-    <div className="products-container">
-      {products.map((value: any) => {
+        <>
+      {
+        products.map((product: any) => {
         return (
-          <ProductCard
-            key={value.id}
-            id={value.id}
-            name={value.name}
-            price={value.price}
-            imageUrl={value.imageUrl}
-          />
-        );
-      })}
-    </div>
+          <>
+          <h2>{product.title}</h2>
+           <div className="products-container">
+            {product.items.map((value: any) => {
+              return (
+                <ProductCard
+                  key={value.id}
+                  id={value.id}
+                  name={value.name}
+                  price={value.price}
+                  imageUrl={value.imageUrl}
+                />
+              );
+            })}
+          </div>
+          </>
+        )
+      })
+      }
+      </>
   );
 };
 

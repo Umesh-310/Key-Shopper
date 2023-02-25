@@ -1,18 +1,36 @@
-import React, { Fragment, ReactNode, useContext } from "react";
+import React, { Fragment, ReactNode, useContext, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-// import { useSelector } from "react-redux";
 
-import { signOutUser } from "../utils/firebase/firebase.utils";
+import { getCatrgoriesAndDocuments, signOutUser } from "../utils/firebase/firebase.utils";
 import { contextUser } from "@/pages/_app";
 import CartIcon from "../Cart-icon/CartIcon";
 import CartItemDropdown from "../Cart-drop-down/CartItemDropdown";
-import { useSelector } from "react-redux";
+import { useSelector , useDispatch } from "react-redux";
+import { ProductsContextAction } from "@/Redux-context/productsContext";
 
 const Navigation = (props: { children: ReactNode }) => {
   const { cartOpen } = useSelector((state: any) => state.cartContext);
-
+    const dispatch = useDispatch();
   const user = useContext(contextUser);
+
+   useEffect(() => {
+    const getCategoriesMap = async () => {
+      const data = await getCatrgoriesAndDocuments();
+      const tempData = [];
+      for (const key in data) {
+        const obj = {
+          id: key,
+          title : key ,
+          items : data[key]
+        };
+        tempData.push(obj);
+      }
+      dispatch(ProductsContextAction.setProducts(tempData));
+      console.log(data);
+    };
+    getCategoriesMap();
+  }, [dispatch]);
 
   const onSignOut = async () => {
     await signOutUser();

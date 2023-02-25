@@ -14,7 +14,7 @@ const CheckOutTable = (props: {
   return (
     <div className="checkout-item-container">
       <div className="image-container">
-        <Image src={props.imageUrl} alt={props.name} width='0'height='0' />
+        <img src={props.imageUrl} alt={props.name} />
       </div>
       <span className="name">{props.name}</span>
       <span className="quantity">

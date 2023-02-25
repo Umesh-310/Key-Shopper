@@ -15,13 +15,20 @@ const ProductCard = (props: {
   const dispacth = useDispatch();
   const setToCartItem = () => {
     // addOrder
-    const order = { ...props, Userid: user.uid, displayName: user.displayName };
-
-    dispacth(cartContextAction.addOrder(order));
+    if (user) {
+      const order = {
+        ...props,
+        Userid: user.uid,
+        displayName: user.displayName,
+      };
+      dispacth(cartContextAction.addOrder(order));
+    } else {
+      alert("Log-in first");
+    }
   };
   return (
     <div className="product-card-container">
-        <img src={props.imageUrl} alt={props.name} />
+      <img src={props.imageUrl} alt={props.name} />
       <div className="footer">
         <span className="name">{props.name}</span>
         <span className="price">${props.price}</span>

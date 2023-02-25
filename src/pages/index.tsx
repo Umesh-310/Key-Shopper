@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import HomeComponents from "@/Components/Home-Page-component/HomeComponents";
-
 const categories = [
   {
     id: 1,
@@ -28,9 +27,7 @@ const categories = [
     imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
   },
 ];
-// export const AuthContext = createContext({
-//   currentUser: "abc",
-// });
+
 const Home = () => {
   return (
     // <AuthContext.Provider value={{ currentUser: "abc" }}>
