@@ -14,7 +14,7 @@ const CheckOutTable = (props: {
   return (
     <div className="checkout-item-container">
       <div className="image-container">
-        <img src={props.imageUrl} alt={props.name} />
+        <Image width="500" height="100" src={props.imageUrl} alt={props.name} />
       </div>
       <span className="name">{props.name}</span>
       <span className="quantity">
@@ -29,7 +29,7 @@ const CheckOutTable = (props: {
           onClick={() => dispacth(cartContextAction.incrementOrder(props.id))}
           className="arrow"
         >
-           &#10095;
+          &#10095;
         </button>
       </span>
       <span className="price">{props.count * props.price}</span>
